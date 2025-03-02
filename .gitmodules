@@ -1,0 +1,4 @@
+[submodule "xdelta"]
+	path = xdelta
+	url = https://github.com/ralexstokes/xdelta
+	branch = release3_0_apl
