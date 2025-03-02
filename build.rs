@@ -44,13 +44,13 @@ fn main() {
 
     {
         let mut builder = cc::Build::new();
-        builder.include("xdelta3/xdelta3");
+        builder.include("xdelta/xdelta3");
         for (key, val) in &defines {
             builder.define(&key, Some(val.as_str()));
         }
 
         builder
-            .file("xdelta3/xdelta3/xdelta3.c")
+            .file("xdelta/xdelta3/xdelta3.c")
             .warnings(false)
             .compile("xdelta3");
     }
@@ -77,7 +77,7 @@ fn main() {
             builder = builder.clang_arg(format!("-D{}={}", key, val));
         }
         let bindings = builder
-            .header("xdelta3/xdelta3/xdelta3.h")
+            .header("xdelta/xdelta3/xdelta3.h")
             .parse_callbacks(Box::new(bindgen::CargoCallbacks))
             .allowlist_function("xd3_.*")
             .allowlist_type("xd3_.*")
